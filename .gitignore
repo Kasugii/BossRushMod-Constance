@@ -1,0 +1,20 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docobj
+
+# OS
+.DS_Store
+Thumbs.db
+
+# BepInEx compiled output (don't commit the .dll)
+*.dll
+
+# Logs
+*.log

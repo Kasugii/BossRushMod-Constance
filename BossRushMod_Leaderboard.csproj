@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D71FC4B-C3EC-4AEF-B54C-AD7A14DB20D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BossRushMod_Leaderboard</RootNamespace>
+    <AssemblyName>BossRushMod+Leaderboard</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\Games\Constance\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AstarPathfindingProject">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\AstarPathfindingProject.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Btf.BtfUnityTools.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Btf.BtfUnityTools.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Coffee.SoftMaskForUGUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI.R">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Coffee.SoftMaskForUGUI.R.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.UIParticle">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Coffee.UIParticle.dll</HintPath>
+    </Reference>
+    <Reference Include="com.rlabrecque.steamworks.net">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Audio">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Characters.Player">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Characters.Player.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Core">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Academy">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Academy.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Carnival">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Carnival.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Foundry">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Foundry.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Junction">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Junction.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Other">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Other.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Peak">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Peak.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Vaults">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Vaults.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Creatures.Voids">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Creatures.Voids.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Entities">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Flashbacks">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Flashbacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Misc">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Playground">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Playground.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Rendering">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.Ui">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.Ui.dll</HintPath>
+    </Reference>
+    <Reference Include="Constance.World">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Constance.World.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween.Modules">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\DOTween.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro.Scripts">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\DOTweenPro.Scripts.dll</HintPath>
+    </Reference>
+    <Reference Include="Febucci.Attributes.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Febucci.Attributes.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Febucci.TextAnimator.Demo.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Febucci.TextAnimator.Demo.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Febucci.TextAnimator.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Febucci.TextAnimator.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Febucci.TextAnimator.TMP.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Febucci.TextAnimator.TMP.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="HierarchyIcons">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\HierarchyIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="LDtkUnity.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\LDtkUnity.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Leo.Scripts">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Leo.Scripts.dll</HintPath>
+    </Reference>
+    <Reference Include="Lofelt.NiceVibrations">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Lofelt.NiceVibrations.dll</HintPath>
+    </Reference>
+    <Reference Include="Lofelt.NiceVibrations.Demo">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Lofelt.NiceVibrations.Demo.dll</HintPath>
+    </Reference>
+    <Reference Include="Logwin">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Logwin.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreMountains.Tools">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\MoreMountains.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="NaughtyAttributes.Core">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\NaughtyAttributes.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PathCreator">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\PathCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.Demo">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.Demo.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.Extras">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.Grammar">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.Grammar.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.Parsers">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.Parsers.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.ScanRules">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.ScanRules.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.Serializers">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.Serializers.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.Suggestors">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.Suggestors.dll</HintPath>
+    </Reference>
+    <Reference Include="QFSW.QC.UI">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\QFSW.QC.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="ShapesRuntime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\ShapesRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Sonity.Internal.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Sonity.Internal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Sonity.Public.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Sonity.Public.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="SonityTemplate">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\SonityTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="st.one-line.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\st.one-line.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="st.rect-ex.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\st.rect-ex.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIShapes">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UIShapes.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.InputSystem.ForUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Localization">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.MemoryProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Microsoft.GDK">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Microsoft.GDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Microsoft.GDK.Tools">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Microsoft.GDK.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HierarchyCoreModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.HierarchyCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputForUIModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.InputForUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PropertiesModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.PropertiesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreFontEngineModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Utf8Json">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Utf8Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.CsvHelper">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Yarn.CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.Google.Protobuf">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Yarn.Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Buffers">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Yarn.System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Memory">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Yarn.System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Numerics.Vectors">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Yarn.System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\Yarn.System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\YarnSpinner.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner.Unity">
+      <HintPath>..\..\..\..\Downloads\ModCONSTANCE\Modified\Managed\YarnSpinner.Unity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BossRushBugFixes.cs" />
+    <Compile Include="BossRushTeleport.cs" />
+    <Compile Include="BrainStokerPatches.cs" />
+    <Compile Include="BossTrigger.cs" />
+    <Compile Include="BossRushSceneHook.cs" />
+    <Compile Include="Puppetmasterdeathpatches.cs" />
+    <Compile Include="Puppethandpatches.cs" />
+    <Compile Include="Bossrushmode.cs" />
+    <Compile Include="Bossrushleaderboard.cs" />
+    <Compile Include="Simpleskinmod.cs" />
+    <Compile Include="GUIBossRush.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
