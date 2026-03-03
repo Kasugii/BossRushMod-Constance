@@ -55,6 +55,14 @@ All bosses in random order.
 
 ---
 
+## Leaderboard Server
+
+The leaderboard backend lives in `leaderboard_server/` — Node.js + Express + PostgreSQL.
+
+Deployed with [Render](https://render.com) (web service) + [Neon](https://neon.tech) (PostgreSQL).
+
+---
+
 ## License
 
 MIT — see [LICENSE](LICENSE)
